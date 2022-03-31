@@ -16,7 +16,7 @@ public class CategoriaDTO implements Serializable {
 
 	// ---------------------------------------------------------
 	@NotEmpty(message = "Preenchimento obrigatório")
-	@Length(min = 5, max = 80, message = "O tamanho do campo deve ser entre 5 e 80 caracteres ")
+	@Length(min = 5, max = 80, message = "O tamanho do campo deve ter entre 5 e 80 caracteres")
 	private String nome;
 
 	// ---------------------------------------------------------
