@@ -33,7 +33,6 @@ public class Pedido implements Serializable {
 
 	// -----------------------------------------
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "pedido")
-
 	private Pagamento pagamento;
 
 	// -----------------------------------------
