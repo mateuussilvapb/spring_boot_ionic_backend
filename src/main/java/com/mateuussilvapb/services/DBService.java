@@ -34,23 +34,31 @@ import com.mateuussilvapb.repositories.ProdutoRepository;
 @Service
 public class DBService {
 
-	// -----------------------------------------
+	// ---------------------------------------------------------
 	@Autowired
 	CategoriaRepository categoriaRepository;
+	// ---------------------------------------------------------
 	@Autowired
 	ProdutoRepository produtoRepository;
+	// ---------------------------------------------------------
 	@Autowired
 	CidadeRepository cidadeRepository;
+	// ---------------------------------------------------------
 	@Autowired
 	EstadoRepository estadoRepository;
+	// ---------------------------------------------------------
 	@Autowired
 	ClienteRepository clienteRepository;
+	// ---------------------------------------------------------
 	@Autowired
 	EnderecoRepository enderecoRepository;
+	// ---------------------------------------------------------
 	@Autowired
 	PedidoRepository pedidoRepository;
+	// ---------------------------------------------------------
 	@Autowired
 	PagamentoRepository pagamentoRepository;
+	// ---------------------------------------------------------
 	@Autowired
 	ItemPedidoRepository itemPedidoRepository;
 
