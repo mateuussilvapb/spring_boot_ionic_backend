@@ -14,7 +14,7 @@ import com.mateuussilvapb.services.validation.ClienteInsert;
 public class ClienteNewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	// DADOS CLIENTE
+// DADOS CLIENTE
 	// ---------------------------------------------------------
 	@NotEmpty(message = "Preenchimento obrigatório")
 	@Length(min = 5, max = 120, message = "O tamanho do campo deve ter entre 5 e 120 caracteres")
@@ -28,8 +28,11 @@ public class ClienteNewDTO implements Serializable {
 	private String cpfOuCnpj;
 	// ---------------------------------------------------------
 	private Integer tipo;
+	// ---------------------------------------------------------
+	@NotEmpty(message = "Preenchimento obrigatório")
+	private String senha;
 
-	// DADOS ENDEREÇO
+// DADOS ENDEREÇO
 	// -----------------------------------------
 	@NotEmpty(message = "Preenchimento obrigatório")
 	private String logradouro;
@@ -44,7 +47,7 @@ public class ClienteNewDTO implements Serializable {
 	@NotEmpty(message = "Preenchimento obrigatório")
 	private String cep;
 
-	// DADOS TELEFONE
+// DADOS TELEFONE
 	// ---------------------------------------------------------
 	@NotEmpty(message = "Preenchimento obrigatório")
 	private String telefone1;
@@ -53,7 +56,7 @@ public class ClienteNewDTO implements Serializable {
 	// ---------------------------------------------------------
 	private String telefone3;
 
-	// DADOS CIDADE
+// DADOS CIDADE
 	// ---------------------------------------------------------
 	private Integer cidadeId;
 
@@ -99,6 +102,16 @@ public class ClienteNewDTO implements Serializable {
 	// ---------------------------------------------------------
 	public void setTipo(Integer tipo) {
 		this.tipo = tipo;
+	}
+
+	// ---------------------------------------------------------
+	public String getSenha() {
+		return senha;
+	}
+
+	// ---------------------------------------------------------
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	// ---------------------------------------------------------
