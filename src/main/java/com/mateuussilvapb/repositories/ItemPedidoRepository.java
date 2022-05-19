@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mateuussilvapb.domain.ItemPedido;
 
+//=============================================================//
 @Repository
 public interface ItemPedidoRepository extends JpaRepository<ItemPedido, Integer> {
 

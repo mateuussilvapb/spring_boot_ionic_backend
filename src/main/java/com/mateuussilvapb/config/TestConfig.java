@@ -11,25 +11,25 @@ import com.mateuussilvapb.services.DBService;
 import com.mateuussilvapb.services.EmailService;
 import com.mateuussilvapb.services.MockEmailService;
 
-// ---------------------------------------------------------
+//=============================================================//
 @Configuration
 @Profile("test")
 public class TestConfig {
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Autowired
 	private DBService dbService;
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Bean
 	public boolean instatntiateDatabase() throws ParseException {
 		dbService.instantiateTestDatabase();
 		return true;
 	}
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Bean
 	public EmailService emailService() {
-		return	 new MockEmailService();
+		return new MockEmailService();
 	}
 }

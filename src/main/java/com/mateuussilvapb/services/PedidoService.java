@@ -16,46 +16,46 @@ import com.mateuussilvapb.repositories.PagamentoRepository;
 import com.mateuussilvapb.repositories.PedidoRepository;
 import com.mateuussilvapb.services.exeptions.ObjectNotFoundException;
 
-// ---------------------------------------------------------
+// =============================================================//
 @Service
 public class PedidoService {
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Autowired
 	private PedidoRepository repo;
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Autowired
 	private BoletoService boletoService;
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Autowired
 	private PagamentoRepository pagamentoRepository;
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Autowired
 	private ProdutoService produtoService;
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Autowired
 	private ClienteService clienteService;
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Autowired
 	private EmailService emailService;
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	public Pedido find(Integer id) {
 		Optional<Pedido> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado. ID: " + id + ", Tipo: " + Pedido.class.getName()));
 	}
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Transactional
 	public Pedido insert(Pedido obj) {
 		obj.setId(null);

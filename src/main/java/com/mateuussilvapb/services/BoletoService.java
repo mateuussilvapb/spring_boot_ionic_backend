@@ -7,10 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.mateuussilvapb.domain.PagamentoComBoleto;
 
-// ---------------------------------------------------------
+//=============================================================//
 @Service
 public class BoletoService {
 
+	// =============================================================//
 	public void preencherPagamentoComBoleto(PagamentoComBoleto pagto, Date instanteDoPedido) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(instanteDoPedido);

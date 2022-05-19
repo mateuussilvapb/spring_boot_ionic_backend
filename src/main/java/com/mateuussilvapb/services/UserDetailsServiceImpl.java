@@ -10,15 +10,15 @@ import com.mateuussilvapb.domain.Cliente;
 import com.mateuussilvapb.repositories.ClienteRepository;
 import com.mateuussilvapb.security.UserSS;
 
-//-----------------------------------------
+// =============================================================//
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-	// -----------------------------------------
+	// =============================================================//
 	@Autowired
 	private ClienteRepository clienteRepository;
 
-	// -----------------------------------------
+	// =============================================================//
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		Cliente cli = clienteRepository.findByEmail(email);

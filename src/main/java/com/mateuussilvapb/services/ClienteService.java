@@ -22,54 +22,55 @@ import com.mateuussilvapb.repositories.EnderecoRepository;
 import com.mateuussilvapb.services.exeptions.DataIntegrityException;
 import com.mateuussilvapb.services.exeptions.ObjectNotFoundException;
 
+//=============================================================//
 @Service
 public class ClienteService {
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Autowired
 	private ClienteRepository clienteRepository;
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Autowired
 	private EnderecoRepository enderecoRepository;
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	public Cliente find(Integer id) {
 		Optional<Cliente> obj = clienteRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado. ID: " + id + ", Tipo: " + Cliente.class.getName()));
 	}
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	public List<Cliente> findAll() {
 		return clienteRepository.findAll();
 	}
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	public Page<Cliente> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		return clienteRepository.findAll(pageRequest);
 	}
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	public Cliente update(Cliente obj) {
 		Cliente newObj = find(obj.getId());
 		newObj = updateData(newObj, obj);
 		return clienteRepository.save(newObj);
 	}
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	private Cliente updateData(Cliente newObj, Cliente obj) {
 		newObj.setNome(obj.getNome());
 		newObj.setEmail(obj.getEmail());
 		return newObj;
 	}
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	public void delete(Integer id) {
 		find(id);
 		try {
@@ -79,7 +80,7 @@ public class ClienteService {
 		}
 	}
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	public Cliente insert(Cliente obj) {
 		obj.setId(null);
 		obj = clienteRepository.save(obj);
@@ -87,12 +88,12 @@ public class ClienteService {
 		return obj;
 	}
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	public Cliente fromDTO(ClienteDTO objDto) {
 		return new Cliente(objDto.getId(), objDto.getNome(), objDto.getEmail(), null, null, null);
 	}
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	public Cliente fromDTO(ClienteNewDTO objDto) {
 		Cliente cli = new Cliente(null, objDto.getNome(), objDto.getEmail(), objDto.getCpfOuCnpj(),
 				TipoCliente.toEnum(objDto.getTipo()), bCryptPasswordEncoder.encode(objDto.getSenha()));

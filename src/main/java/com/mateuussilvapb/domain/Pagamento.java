@@ -15,32 +15,32 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.mateuussilvapb.domain.enums.EstadoPagamento;
 
-// -----------------------------------------
+// =============================================================//
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@type")
 public abstract class Pagamento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	// -----------------------------------------
+	// =============================================================//
 	@Id
 	private Integer id;
 
-	// -----------------------------------------
+	// =============================================================//
 	private Integer estado;
 
-	// -----------------------------------------
+	// =============================================================//
 	@MapsId
 	@OneToOne
 	@JsonIgnore
 	@JoinColumn(name = "pedido_id")
 	private Pedido pedido;
 
-	// -----------------------------------------
+	// =============================================================//
 	public Pagamento() {
 	}
 
-	// -----------------------------------------
+	// =============================================================//
 	public Pagamento(Integer id, EstadoPagamento estado, Pedido pedido) {
 		super();
 		this.id = id;
@@ -48,43 +48,43 @@ public abstract class Pagamento implements Serializable {
 		this.pedido = pedido;
 	}
 
-	// -----------------------------------------
+	// =============================================================//
 	public Integer getId() {
 		return id;
 	}
 
-	// -----------------------------------------
+	// =============================================================//
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	// -----------------------------------------
+	// =============================================================//
 	public EstadoPagamento getEstado() {
 		return EstadoPagamento.toEnum(estado);
 	}
 
-	// -----------------------------------------
+	// =============================================================//
 	public void setEstado(EstadoPagamento estado) {
 		this.estado = estado.getCod();
 	}
 
-	// -----------------------------------------
+	// =============================================================//
 	public Pedido getPedido() {
 		return pedido;
 	}
 
-	// -----------------------------------------
+	// =============================================================//
 	public void setPedido(Pedido pedido) {
 		this.pedido = pedido;
 	}
 
-	// -----------------------------------------
+	// =============================================================//
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
 
-	// -----------------------------------------
+	// =============================================================//
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

@@ -12,27 +12,30 @@ import com.mateuussilvapb.services.DBService;
 import com.mateuussilvapb.services.EmailService;
 import com.mateuussilvapb.services.SmtpEmailService;
 
+//=============================================================//
 @Configuration
 @Profile("dev")
 public class DevConfig {
 
+	// =============================================================//
 	@Autowired
 	private DBService dbService;
 
+	// =============================================================//
 	@Value("${spring.jpa.hibernate.ddl-auto}")
 	private String strategy;
 
+	// =============================================================//
 	@Bean
 	public boolean instantiateDatabase() throws ParseException {
-
 		if (!"create-drop".equals(strategy)) {
 			return false;
 		}
-
 		dbService.instantiateTestDatabase();
 		return true;
 	}
 
+	// =============================================================//
 	@Bean
 	public EmailService emailService() {
 		return new SmtpEmailService();

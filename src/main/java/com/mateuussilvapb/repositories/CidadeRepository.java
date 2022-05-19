@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mateuussilvapb.domain.Cidade;
 
+//=============================================================//
 @Repository
 public interface CidadeRepository extends JpaRepository<Cidade, Integer> {
 

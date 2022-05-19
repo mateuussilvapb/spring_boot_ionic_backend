@@ -11,11 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mateuussilvapb.domain.Categoria;
 import com.mateuussilvapb.domain.Produto;
 
-// ---------------------------------------------------------
+// =============================================================//
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
 
-	// ---------------------------------------------------------
+	// =============================================================//
 	@Transactional(readOnly = true)
 	Page<Produto> findDistinctByNomeContainingAndCategoriasIn(String nome, List<Categoria> categorias,
 			Pageable pageRequest);
