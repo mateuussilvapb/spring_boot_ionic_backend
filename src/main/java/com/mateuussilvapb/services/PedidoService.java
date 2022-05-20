@@ -4,9 +4,13 @@ import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mateuussilvapb.domain.Cliente;
 import com.mateuussilvapb.domain.ItemPedido;
 import com.mateuussilvapb.domain.PagamentoComBoleto;
 import com.mateuussilvapb.domain.Pedido;
@@ -14,6 +18,8 @@ import com.mateuussilvapb.domain.enums.EstadoPagamento;
 import com.mateuussilvapb.repositories.ItemPedidoRepository;
 import com.mateuussilvapb.repositories.PagamentoRepository;
 import com.mateuussilvapb.repositories.PedidoRepository;
+import com.mateuussilvapb.security.UserSS;
+import com.mateuussilvapb.services.exeptions.AuthorizationException;
 import com.mateuussilvapb.services.exeptions.ObjectNotFoundException;
 
 // =============================================================//
@@ -51,6 +57,11 @@ public class PedidoService {
 	// =============================================================//
 	public Pedido find(Integer id) {
 		Optional<Pedido> obj = repo.findById(id);
+		UserSS user = UserService.authenticated();
+		Cliente cli = clienteService.find(user.getId());
+		if (user == null || !cli.getId().equals(obj.get().getCliente().getId())) {
+			throw new AuthorizationException("Acesso negado!");
+		}
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado. ID: " + id + ", Tipo: " + Pedido.class.getName()));
 	}
@@ -78,5 +89,16 @@ public class PedidoService {
 		itemPedidoRepository.saveAll(obj.getItens());
 		emailService.sendOrderConfirmationHtmlEmail(obj);
 		return obj;
+	}
+
+	// =============================================================//
+	public Page<Pedido> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
+		UserSS user = UserService.authenticated();
+		if (user == null) {
+			throw new AuthorizationException("Acesso negado!");
+		}
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		Cliente cli = clienteService.find(user.getId());
+		return repo.findByCliente(cli, pageRequest);
 	}
 }
