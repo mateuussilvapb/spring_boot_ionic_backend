@@ -5,9 +5,6 @@
 create.sql
 HELP.md
 target/
-
 cred.txt
-
 credenciais.xlsx
-
-.src/main/resources/application.properties
+src/main/resources/application.properties
