@@ -12,13 +12,13 @@ public class ValidationError extends StandardError implements Serializable {
 	private List<FieldMessage> errors = new ArrayList<>();
 
 	// =============================================================//
-	public ValidationError(Integer status, String msg, Long timeStamp) {
-		super(status, msg, timeStamp);
+	public List<FieldMessage> getErrors() {
+		return errors;
 	}
 
 	// =============================================================//
-	public List<FieldMessage> getErrors() {
-		return errors;
+	public ValidationError(Long timestamp, Integer status, String error, String message, String path) {
+		super(timestamp, status, error, message, path);
 	}
 
 	// =============================================================//
