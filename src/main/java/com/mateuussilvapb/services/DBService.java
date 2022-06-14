@@ -131,8 +131,33 @@ public class DBService {
 		Produto p49 = new Produto(null, "Produto 49", 10.00);
 		Produto p50 = new Produto(null, "Produto 50", 10.00);
 		// =============================================================//
-		Estado est1 = new Estado(null, "Minas Gerais");
-		Estado est2 = new Estado(null, "São Paulo");
+		Estado est1 = new Estado(null, "Acre", "AC");
+		Estado est2 = new Estado(null, "Alagoas", "AL");
+		Estado est3 = new Estado(null, "Amapá", "AP");
+		Estado est4 = new Estado(null, "Amazonas", "AM");
+		Estado est5 = new Estado(null, "Bahia", "BA");
+		Estado est6 = new Estado(null, "Ceará", "CE");
+		Estado est7 = new Estado(null, "Distrito Federal", "DF");
+		Estado est8 = new Estado(null, "Espírito Santo", "ES");
+		Estado est9 = new Estado(null, "Goiás", "GO");
+		Estado est10 = new Estado(null, "Maranhão", "MA");
+		Estado est11 = new Estado(null, "Mato Grosso", "MT");
+		Estado est12 = new Estado(null, "Mato Grosso do Sul", "MS");
+		Estado est13 = new Estado(null, "Minas Gerais", "MG");
+		Estado est14 = new Estado(null, "Pará", "PA");
+		Estado est15 = new Estado(null, "Paraíba", "PB");
+		Estado est16 = new Estado(null, "Paraná", "PR");
+		Estado est17 = new Estado(null, "Pernambuco", "PE");
+		Estado est18 = new Estado(null, "Piauí", "PI");
+		Estado est19 = new Estado(null, "Rio de Janeiro", "RJ");
+		Estado est20 = new Estado(null, "Rio Grande do Norte", "RN");
+		Estado est21 = new Estado(null, "Rio Grande do Sul", "RS");
+		Estado est22 = new Estado(null, "Rondônia", "RO");
+		Estado est23 = new Estado(null, "Roraima", "RR");
+		Estado est24 = new Estado(null, "Santa Catarina", "SC");
+		Estado est25 = new Estado(null, "São Paulo", "SP");
+		Estado est26 = new Estado(null, "Sergipe", "SE");
+		Estado est27 = new Estado(null, "Tocantins", "TO");
 		// =============================================================//
 		Cidade c1 = new Cidade(null, "Uberlândia", est1);
 		Cidade c2 = new Cidade(null, "São Paulo", est2);
@@ -244,7 +269,9 @@ public class DBService {
 		produtoRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16,
 				p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p34, p35, p36, p37, p38,
 				p39, p40, p41, p42, p43, p44, p45, p46, p47, p48, p49, p50));
-		estadoRepository.saveAll(Arrays.asList(est1, est2));
+		estadoRepository.saveAll(
+				Arrays.asList(est1, est2, est3, est4, est5, est6, est7, est8, est9, est10, est11, est12, est13, est14,
+						est15, est16, est17, est18, est19, est20, est21, est22, est23, est24, est25, est26, est27));
 		cidadeRepository.saveAll(Arrays.asList(c1, c2, c3));
 		clienteRepository.saveAll(Arrays.asList(cli1, cli2));
 		enderecoRepository.saveAll(Arrays.asList(e1, e2, e3));

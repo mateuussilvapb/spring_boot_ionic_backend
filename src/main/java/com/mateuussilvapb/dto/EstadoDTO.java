@@ -10,7 +10,12 @@ public class EstadoDTO implements Serializable {
 
 	// =============================================================//
 	private Integer id;
+
+	// =============================================================//
 	private String nome;
+
+	// =============================================================//
+	private String sigla;
 
 	// =============================================================//
 	public EstadoDTO() {
@@ -20,6 +25,7 @@ public class EstadoDTO implements Serializable {
 	public EstadoDTO(Estado obj) {
 		this.id = obj.getId();
 		this.nome = obj.getNome();
+		this.sigla = obj.getSigla();
 	}
 
 	// =============================================================//
@@ -40,6 +46,16 @@ public class EstadoDTO implements Serializable {
 	// =============================================================//
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	// =============================================================//
+	public String getSigla() {
+		return sigla;
+	}
+
+	// =============================================================//
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
 	}
 
 }
