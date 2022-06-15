@@ -159,9 +159,9 @@ public class DBService {
 		Estado est26 = new Estado(null, "Sergipe", "SE");
 		Estado est27 = new Estado(null, "Tocantins", "TO");
 		// =============================================================//
-		Cidade c1 = new Cidade(null, "Uberlândia", est1);
-		Cidade c2 = new Cidade(null, "São Paulo", est2);
-		Cidade c3 = new Cidade(null, "Campinas", est2);
+		Cidade c1 = new Cidade(null, "Uberlândia", est13);
+		Cidade c2 = new Cidade(null, "São Paulo", est25);
+		Cidade c3 = new Cidade(null, "Campinas", est25);
 		// =============================================================//
 		Cliente cli1 = new Cliente(null, "Maria Silva", "mateuussilvapb@gmail.com", "36378912377",
 				TipoCliente.PESSOA_FISICA, bCryptPasswordEncoder.encode("123"));
@@ -245,8 +245,8 @@ public class DBService {
 		p49.getCategorias().addAll(Arrays.asList(cat1));
 		p50.getCategorias().addAll(Arrays.asList(cat1));
 		// =============================================================//
-		est1.getCidades().addAll(Arrays.asList(c1));
-		est2.getCidades().addAll(Arrays.asList(c2, c3));
+		est13.getCidades().addAll(Arrays.asList(c1));
+		est25.getCidades().addAll(Arrays.asList(c2, c3));
 		// =============================================================//
 		cli1.getTelefones().addAll(Arrays.asList("27363323", "93838393"));
 		cli1.getPedidos().addAll(Arrays.asList(ped1, ped2));

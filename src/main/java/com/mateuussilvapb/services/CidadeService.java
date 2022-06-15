@@ -20,4 +20,11 @@ public class CidadeService {
 	public List<Cidade> findByEstado(Integer estadoId) {
 		return cidadeRepository.findCidades(estadoId);
 	}
+
+	// =============================================================//
+	public Cidade insert(Cidade obj) {
+		obj.setId(null);
+		obj = cidadeRepository.save(obj);
+		return obj;
+	}
 }
